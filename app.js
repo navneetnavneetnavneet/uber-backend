@@ -4,6 +4,7 @@ require("dotenv").config({
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user.routes");
 const captainRoutes = require("./routes/captain.routes");
@@ -16,6 +17,9 @@ app.use(cors());
 
 // cookie parser
 app.use(cookieParser());
+
+// logger
+app.use(logger("tiny"));
 
 // body parser
 app.use(express.json());
